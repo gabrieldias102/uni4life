@@ -12,6 +12,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"],
+  "include": ["src", "src/components", "src/custom.d.ts"],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.test.ts"]
 }
