@@ -18,7 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "npm run start"
+    "dev": "npm run start",
+    "studio": "prisma studio"
   },
   "eslintConfig": {
     "extends": [
