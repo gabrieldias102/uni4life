@@ -6,14 +6,17 @@ const teste = "Página Inicial";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md">
+    <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md w-full">
       <div className="flex items-center space-x-2">
         <GiBookCover size={40} color={"#c96868"} />
         <span className="text-secondaryColor font-bold text-xl">Uni4Life</span>
       </div>
       <div>
-        <Link to="/" className="text-secondaryColor font-bold text-2xl hover:underline">
-              {teste}
+        <Link
+          to="/"
+          className="text-secondaryColor font-bold text-2xl hover:underline"
+        >
+          {teste}
         </Link>
       </div>
 
