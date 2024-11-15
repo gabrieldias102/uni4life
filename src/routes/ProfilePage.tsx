@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/NavBar";
+import NavBar from "../components/NavBar";
 import ProfileBar from "../components/ProfileBar";
 import PostFeed from "../components/PostFeed";
 
@@ -21,7 +21,7 @@ function ProfilePage() {
     return (
         <div>
             <nav className="pb-8">
-                <Navbar/>
+                <NavBar name={'Perfil'} />
             </nav>
             <main>
                 <div>

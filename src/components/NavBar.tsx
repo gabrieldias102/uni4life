@@ -2,19 +2,19 @@ import { GiBookCover, GiPerson } from "react-icons/gi";
 import { FaBell } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const teste = "Página Inicial";
 
-const Navbar = () => {
+const Navbar = (props: { name: string }) => {
+
   return (
     <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md">
       <div className="flex items-center space-x-2">
         <GiBookCover size={40} color={"#c96868"} />
-        <span className="text-secondaryColor font-bold text-xl">Uni4Life</span>
-      </div>
-      <div>
-        <Link to="/" className="text-secondaryColor font-bold text-2xl hover:underline">
-              {teste}
+        <Link to="/">
+          <button className="text-secondaryColor font-bold text-xl hover:underline">Uni4Life</button>
         </Link>
+      </div>
+      <div className="text-secondaryColor font-bold text-2xl">
+            {props.name}
       </div>
 
       <div className="flex items-center space-x-4">
@@ -54,4 +54,5 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar; 
+
