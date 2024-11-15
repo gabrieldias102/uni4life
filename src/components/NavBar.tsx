@@ -2,6 +2,8 @@ import { GiBookCover, GiPerson } from "react-icons/gi";
 import { FaBell } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+const teste = "Página Inicial";
+
 const Navbar = () => {
   return (
     <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md">
@@ -11,7 +13,7 @@ const Navbar = () => {
       </div>
       <div>
         <Link to="/" className="text-secondaryColor font-bold text-2xl hover:underline">
-              Página Inicial
+              {teste}
         </Link>
       </div>
 
