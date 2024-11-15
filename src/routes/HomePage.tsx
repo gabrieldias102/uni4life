@@ -28,7 +28,7 @@ function HomePage() {
         <NavBar name={'Página Inicial'} />
       </nav>
       <div className="flex flex-row gap-8 px-8">
-        <aside className="flex flex-col gap-8 h-full w-2/5">
+        <aside className="flex flex-col gap-8 h-full w-1/3">
           <ProfileCard />
           <ConnectedUsersCard />
         </aside>
@@ -36,7 +36,7 @@ function HomePage() {
           <CreatePostCard />
           <PostFeed posts={posts} />
         </main>
-        <aside className="flex flex-col gap-8 h-full w-2/5">
+        <aside className="flex flex-col gap-8 h-full w-1/3">
           <OrganizationCard />
           <SuggestedUsersCard />
         </aside>
