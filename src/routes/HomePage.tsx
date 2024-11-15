@@ -6,6 +6,7 @@ import OrganizationCard from "../components/OrganizationCard";
 import SuggestedUsersCard from "../components/SuggestedUsersCard";
 import PostFeed from "../components/PostFeed";
 
+
 function HomePage() {
   const posts = [
     {
@@ -24,7 +25,7 @@ function HomePage() {
   return (
     <div>
       <nav className="pb-8">
-        <NavBar />
+        <NavBar name={'Página Inicial'} />
       </nav>
       <div className="flex flex-row">
         <aside className="flex flex-col gap-8 pl-4 h-full w-2/5">
