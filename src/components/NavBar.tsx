@@ -1,5 +1,6 @@
 import { GiBookCover, GiPerson } from "react-icons/gi";
 import { FaBell } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -9,12 +10,9 @@ const Navbar = () => {
         <span className="text-secondaryColor font-bold text-xl">Uni4Life</span>
       </div>
       <div>
-        <a
-          href="#"
-          className="text-secondaryColor font-bold text-2xl hover:underline"
-        >
-          Página Inicial
-        </a>
+        <Link to="/" className="text-secondaryColor font-bold text-2xl hover:underline">
+              Página Inicial
+        </Link>
       </div>
 
       <div className="flex items-center space-x-4">
