@@ -1,12 +1,19 @@
 import { GiPerson } from "react-icons/gi";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const ProfileBar = () => {
     return (
         <section className="flex gap-28 justify-center">
             <div>
                 <div className="flex items-center gap-20 w-full">
-                    <div className="p-8 w-72 h-72 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-                    <GiPerson size={250}/>
+                    <div className="flex items-startgit">
+                        <Link to="/">
+                            <button className="text-gray-600 hover:text-black"><IoMdArrowRoundBack size={50}/></button>
+                        </Link>
+                        <div className="p-8 w-72 h-72 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
+                            <GiPerson size={250}/>
+                        </div>
                     </div>
                     <div>
                         <h2 className="text-6xl font-semibold">Usuário 1</h2>
