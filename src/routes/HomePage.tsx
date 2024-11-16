@@ -5,6 +5,7 @@ import CreatePostCard from "../components/CreatePostCard";
 import OrganizationCard from "../components/OrganizationCard";
 import SuggestedUsersCard from "../components/SuggestedUsersCard";
 import PostFeed from "../components/PostFeed";
+import MobileFooter from "../components/MobileFooter";
 
 
 function HomePage() {
@@ -23,12 +24,12 @@ function HomePage() {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <nav className="pb-8">
         <NavBar name={'Página Inicial'} />
       </nav>
-      <div className="flex flex-row gap-8 px-8">
-        <aside className="flex flex-col gap-8 h-full w-2/5">
+      <div className="flex flex-row gap-8 px-8 flex-grow">
+        <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
           <ProfileCard />
           <ConnectedUsersCard />
         </aside>
@@ -36,11 +37,14 @@ function HomePage() {
           <CreatePostCard />
           <PostFeed posts={posts} />
         </main>
-        <aside className="flex flex-col gap-8 h-full w-2/5">
+        <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
           <OrganizationCard />
           <SuggestedUsersCard />
         </aside>
       </div>
+      <footer className="">
+          <MobileFooter />
+        </footer>
     </div>
   );
 }
