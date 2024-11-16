@@ -42,7 +42,7 @@ function HomePage() {
           <SuggestedUsersCard />
         </aside>
       </div>
-      <footer className="">
+      <footer className="xl:hidden block">
           <MobileFooter />
         </footer>
     </div>

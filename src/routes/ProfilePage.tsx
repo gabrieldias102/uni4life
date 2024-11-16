@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import ProfileBar from "../components/ProfileBar";
 import PostFeed from "../components/PostFeed";
+import MobileFooter from "../components/MobileFooter";
 
 function ProfilePage() {
     const posts = [
@@ -19,12 +20,12 @@ function ProfilePage() {
       ];
 
     return (
-        <div>
+        <div className="flex flex-col h-screen">
             <nav className="pb-8">
                 <NavBar name={'Perfil'} />
             </nav>
             <main>
-                <div>
+                <div className="xl:block hidden">
                     <ProfileBar/>
                 </div>
 
@@ -34,10 +35,13 @@ function ProfilePage() {
                     <button className="hover:text-black">Republicados</button>
                 </div>
                 
-                <div className="w-2/5 mx-auto">
+                <div className="xl:w-2/5 mx-auto w-full px-5">
                     <PostFeed posts={posts}/>
                 </div>
             </main>
+            <footer className="xl:hidden block mt-auto">
+                <MobileFooter />
+            </footer>
         </div>
     )
 }
