@@ -3,7 +3,7 @@ import { AiFillPicture } from "react-icons/ai";
 
 const CreatePostCard = () => {
   return (
-    <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md">
+    <div className="xl:block bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md hidden">
       <h2 className="text-teal-600 text-2xl font-bold mb-4">
         Criar Publicação
       </h2>

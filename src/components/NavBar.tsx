@@ -1,23 +1,20 @@
 import { GiBookCover, GiPerson } from "react-icons/gi";
 import { FaBell } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+
+const Navbar = (props: { name: string }) => {
+
   return (
-    <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md">
-      <div className="flex items-center space-x-2">
-        <GiBookCover size={40} color={"#c96868"} />
-        <span className="text-secondaryColor font-bold text-xl">Uni4Life</span>
+    <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md w-full">
+        <Link to="/" className="xl:mx-0 flex items-center space-x-2 mx-auto">
+            <GiBookCover size={40} color={"#c96868"} />
+            <span className="xl:block text-secondaryColor font-bold text-xl hover:underline hidden">Uni4Life</span>
+        </Link>
+      <div className="xl:block text-secondaryColor font-bold text-2xl hidden">
+            {props.name}
       </div>
-      <div>
-        <a
-          href="#"
-          className="text-secondaryColor font-bold text-2xl hover:underline"
-        >
-          Página Inicial
-        </a>
-      </div>
-
-      <div className="flex items-center space-x-4">
+      <div className="xl:flex items-center space-x-4 hidden">
         <div className="relative">
           <input
             type="text"
@@ -54,4 +51,5 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar; 
+
