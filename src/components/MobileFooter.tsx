@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaSearch, FaHome, FaUserAlt } from "react-icons/fa";
+import { FaPlus, FaHome, FaUserAlt } from "react-icons/fa";
 
 const MobileFooter = () => {
     return (
@@ -12,7 +12,7 @@ const MobileFooter = () => {
              
             <Link to="">
                 <button className="text-tertiaryColor">
-                  <FaSearch size={50}/>
+                  <FaPlus size={50}/>
                 </button>
             </Link>
           
