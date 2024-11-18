@@ -28,23 +28,28 @@ function HomePage() {
       <nav className="pb-8">
         <NavBar name={'Página Inicial'} />
       </nav>
+
       <div className="flex flex-row gap-8 px-8 flex-grow">
         <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
           <ProfileCard />
           <ConnectedUsersCard />
         </aside>
-        <main className="flex flex-col gap-16 h-full w-full">
+
+        <main className="flex flex-col gap-16 h-full w-full pb-28">
           <CreatePostCard />
           <PostFeed posts={posts} />
         </main>
+
         <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
           <OrganizationCard />
           <SuggestedUsersCard />
         </aside>
       </div>
+
       <footer className="xl:hidden block">
           <MobileFooter />
-        </footer>
+      </footer>
+
     </div>
   );
 }
