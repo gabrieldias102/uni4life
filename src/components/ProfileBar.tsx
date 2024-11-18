@@ -23,7 +23,8 @@ const ProfileBar = () => {
                         </div>
                         <div>
                             <p className="text-6xl font-semibold">Usuário 1</p>
-                            <p className="text-xl font-light my-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p className="text-xl font-light my-1">@Usuario1</p>
+                            <p className="text-xl font-light mb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <div className="my-5 flex gap-10 text-center">
                                 <div>
                                     <p className="text-2xl font-bold">350</p>
