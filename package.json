@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@vercel/postgres": "^0.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
@@ -18,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "npm run start"
+    "dev": "npm run start",
+    "studio": "prisma studio"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +44,7 @@
   "devDependencies": {
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "prisma": "^5.22.0",
     "tailwindcss": "^3.4.14",
     "typescript": "^4.9.5"
   }
