@@ -21,15 +21,15 @@ function ProfilePage() {
 
     return (
         <div className="flex flex-col h-screen">
-            <nav className="pb-8">
+            <nav className="xl:pb-8 pb-4">
                 <NavBar name={'Perfil'} />
             </nav>
             <main>
-                <div className="xl:block hidden">
+                <div>
                     <ProfileBar/>
                 </div>
 
-                <div className="flex gap-5 justify-center my-10 text-3xl text-gray-600">
+                <div className="flex gap-5 justify-center xl:my-10 xl:text-3xl text-gray-600 mb-5 text-xl">
                     <button className="hover:text-black">Publicados</button>
                     <p>|</p>
                     <button className="hover:text-black">Republicados</button>
