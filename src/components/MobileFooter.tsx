@@ -10,7 +10,7 @@ const MobileFooter = () => {
                 </button>
             </Link>
              
-            <Link to="">
+            <Link to="/Connections">
                 <button className="text-tertiaryColor">
                   <FaPlus size={50}/>
                 </button>
