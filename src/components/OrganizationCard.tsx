@@ -1,4 +1,4 @@
-import { GiPerson } from "react-icons/gi";
+import { FaBuilding } from "react-icons/fa";
 
 const OrganizationCard = () => {
   return (
@@ -7,7 +7,7 @@ const OrganizationCard = () => {
 
       <div className="flex items-center mb-4">
         <div className="p-4 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-          <GiPerson size={35} />
+          <FaBuilding size={35} />
         </div>
 
         <div className="ml-4">

@@ -1,4 +1,5 @@
 import { GiPerson } from "react-icons/gi";
+import { FaBuilding } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import MobileProfileBar from "../components/MobileProfileBar";
@@ -41,7 +42,9 @@ const ProfileBar = () => {
                 <div className="bg-tertiaryColor w-1.5 h-auto rounded-full"></div>
 
                 <div className="flex flex-col items-center gap-2">
-                    <div className="bg-tertiaryColor w-36 h-36 rounded-full"></div>
+                    <div className="bg-tertiaryColor text-secondaryColor p-7 rounded-full flex items-center justify-center">
+                        <FaBuilding size={80} />
+                    </div>
                     <p className="text-tertiaryColor text-4xl font-semibold">Unisinos</p>
                     <p className="text-tertiaryColor text-xl font-semibold">Análise e Desenvolvimento de Sistemas</p>
                     <p className="text-tertiaryColor text-2xl">Aluno</p>
