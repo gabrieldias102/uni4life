@@ -35,7 +35,7 @@ const PostFeed = ({ posts }: PostFeedProps) => {
 
           <p className="text-black mb-4">{post.content}</p>
 
-          <div className="flex justify-between items-center">
+          <div className="flex justify-around items-center">
             <button className="flex items-center text-red-400 space-x-1 hover:text-red-500 transition">
               <AiFillHeart size={20} />
             </button>
