@@ -1,3 +1,5 @@
+import { FaPencilAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import ProfileCard from "../components/ProfileCard";
 import ConnectedUsersCard from "../components/ConnectedUsersCard";
@@ -38,6 +40,9 @@ function HomePage() {
         <main className="flex flex-col gap-16 h-full w-full pb-28">
           <CreatePostCard />
           <PostFeed posts={posts} />
+          <Link to="/" className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6">
+            <FaPencilAlt size={40}/>
+          </Link>
         </main>
 
         <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
