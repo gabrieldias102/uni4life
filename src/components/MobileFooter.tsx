@@ -3,7 +3,7 @@ import { FaSearch, FaHome, FaUserAlt } from "react-icons/fa";
 
 const MobileFooter = () => {
     return (
-        <nav className="flex items-center justify-around bg-primaryColor p-4 shadow-md w-full">
+        <nav className="flex items-center justify-around bg-primaryColor p-4 shadow-md w-full fixed bottom-0">
             <Link to="/">
                 <button className="text-tertiaryColor">
                     <FaHome size={50}/>

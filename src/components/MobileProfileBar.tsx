@@ -16,8 +16,10 @@ const MobileProfileBar = () => {
                 </div>
             </div>
 
+            <div className="my-1 mx-auto h-px w-1/5 bg-gray-400"></div>
+
             <div>
-                <div className="flex gap-3 items-center">
+                <div className="flex gap-3 items-center mt-3">
                     <div className="p-4 w-32 h-32 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
                         <GiPerson size={100}/>
                     </div>
@@ -28,7 +30,7 @@ const MobileProfileBar = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-8 items-center my-3">
+                <div className="flex gap-8 items-center jus my-3">
                     <button className="bg-tertiaryColor text-secondaryColor px-4 py-2 text-xl font-semibold rounded-2xl active:bg-red-500">Editar Perfil</button>
                     <div>
                         <p className="text-xl font-bold">350</p>
@@ -41,7 +43,7 @@ const MobileProfileBar = () => {
                 </div>
             </div>
 
-            <div className="my-4 h-px width-full bg-gray-600"></div>
+            <div className="my-4 h-px w-full bg-gray-600"></div>
 
         </div>
     )
