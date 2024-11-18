@@ -4,7 +4,7 @@ const SuggestedUsersCard = () => {
   const users = ["Usuário 5", "Usuário 6", "Usuário 7"]; // Example user data
 
   return (
-    <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm">
+    <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
       <h2 className="text-teal-600 text-2xl font-bold mb-4">
         Usuários Sugeridos
       </h2>
