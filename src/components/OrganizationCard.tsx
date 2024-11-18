@@ -1,13 +1,13 @@
-import { GiPerson } from "react-icons/gi";
+import { FaBuilding } from "react-icons/fa";
 
 const OrganizationCard = () => {
   return (
-    <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm">
+    <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
       <h2 className="text-teal-600 text-xl font-bold mb-4">Sua Organização</h2>
 
       <div className="flex items-center mb-4">
         <div className="p-4 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-          <GiPerson size={35} />
+          <FaBuilding size={35} />
         </div>
 
         <div className="ml-4">

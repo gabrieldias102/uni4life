@@ -7,16 +7,14 @@ const Navbar = (props: { name: string }) => {
 
   return (
     <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md w-full">
-      <div className="flex items-center space-x-2">
-        <GiBookCover size={40} color={"#c96868"} />
-        <Link to="/">
-            <span className="text-secondaryColor font-bold text-xl hover:underline">Uni4Life</span>
+        <Link to="/" className="xl:mx-0 flex items-center space-x-2 mx-auto">
+            <GiBookCover size={40} color={"#c96868"} />
+            <span className="text-secondaryColor font-bold text-xl xl:hover:underline">Uni4Life</span>
         </Link>
-      </div>
-      <div className="text-secondaryColor font-bold text-2xl">
+      <div className="xl:block text-secondaryColor font-bold text-2xl hidden">
             {props.name}
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="xl:flex items-center space-x-4 hidden">
         <div className="relative">
           <input
             type="text"
