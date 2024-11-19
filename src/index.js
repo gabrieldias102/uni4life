@@ -4,6 +4,8 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import ConnectionsPage from "./app/pages/ConnectionsPage";
+import CreatePostMobile from "./app/pages/CreatePostMobile";
 import HomePage from "./app/pages/HomePage";
 import ProfilePage from "./app/pages/ProfilePage";
 
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
   {
     path: "Profile",
     element: <ProfilePage />,
+  },
+  {
+    path: "Connections",
+    element: <ConnectionsPage />,
+  },
+  {
+    path: "CreatePost",
+    element: <CreatePostMobile />,
   },
 ]);
 
