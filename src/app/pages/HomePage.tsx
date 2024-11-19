@@ -9,7 +9,6 @@ import SuggestedUsersCard from "../components/SuggestedUsersCard";
 import PostFeed from "../components/PostFeed";
 import MobileFooter from "../components/MobileFooter";
 
-
 function HomePage() {
   const posts = [
     {
@@ -28,7 +27,7 @@ function HomePage() {
   return (
     <div className="flex flex-col h-screen">
       <nav className="pb-8">
-        <NavBar name={'Página Inicial'} />
+        <NavBar name={"Página Inicial"} />
       </nav>
 
       <div className="flex flex-row gap-8 px-8 flex-grow">
@@ -40,8 +39,11 @@ function HomePage() {
         <main className="flex flex-col gap-16 h-full w-full pb-28">
           <CreatePostCard />
           <PostFeed posts={posts} />
-          <Link to="/" className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6">
-            <FaPencilAlt size={40}/>
+          <Link
+            to="/"
+            className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6"
+          >
+            <FaPencilAlt size={40} />
           </Link>
         </main>
 
@@ -52,9 +54,8 @@ function HomePage() {
       </div>
 
       <footer className="xl:hidden block">
-          <MobileFooter />
+        <MobileFooter />
       </footer>
-
     </div>
   );
 }
