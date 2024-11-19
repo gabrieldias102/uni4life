@@ -1,5 +1,6 @@
 import NavBar from "../components/NavBar";
 import MobileFooter from "../components/MobileFooter";
+import CreatePostCard from "../components/CreatePostCard";
 
 function CreatePostMobile() {
     return (
@@ -9,8 +10,8 @@ function CreatePostMobile() {
                 <NavBar name={'Conexões'} />
             </nav>
 
-            <main className="flex flex-col gap-10 items-center scroll-pb-96 mx-5 relative pb-28">
-
+            <main className="w-auto">
+                <CreatePostCard />
             </main>
 
             <footer className="xl:hidden block">
