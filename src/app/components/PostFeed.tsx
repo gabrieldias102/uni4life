@@ -4,17 +4,31 @@ import {
   AiOutlineComment,
   AiOutlineRetweet,
 } from "react-icons/ai";
+import { useEffect, useState } from "react";
 
 interface Post {
-  userName: string;
-  userHandle: string;
+  id: string;
   content: string;
+  createdAt: string;
+  userId: string;
+  author: {
+    id: string;
+    name: string;
+    email: string;
+    createdAt: string;
+  };
 }
 
-interface PostFeedProps {
-  posts: Post[];
-}
-const PostFeed = ({ posts }: PostFeedProps) => {
+const PostFeed = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3333/posts")
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Error fetching users:", error));
+  }, []);
+
   return (
     <div className="space-y-4">
       {posts.map((post, index) => (
@@ -28,8 +42,10 @@ const PostFeed = ({ posts }: PostFeedProps) => {
             </div>
 
             <div className="ml-4">
-              <p className="text-primaryColor font-semibold">{post.userName}</p>
-              <p className="text-primaryColor text-sm">@{post.userHandle}</p>
+              <p className="text-primaryColor font-semibold">
+                {post.author.name}
+              </p>
+              <p className="text-primaryColor text-sm">{post.author.email}</p>
             </div>
           </div>
 

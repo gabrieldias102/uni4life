@@ -9,21 +9,9 @@ import SuggestedUsersCard from "../components/SuggestedUsersCard";
 import PostFeed from "../components/PostFeed";
 import MobileFooter from "../components/MobileFooter";
 
-function HomePage() {
-  const posts = [
-    {
-      userName: "Usuário 3",
-      userHandle: "Usuario3",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt eum id eaque facilis similique, labore atque expedita ut quaerat officia natus consectetur unde maiores sunt.",
-    },
-    {
-      userName: "Usuário 4",
-      userHandle: "Usuario4",
-      content: "Another example post for the feed!",
-    },
-  ];
+import { useEffect, useState } from "react";
 
+function HomePage() {
   return (
     <div className="flex flex-col h-screen">
       <nav className="pb-8">
@@ -38,7 +26,7 @@ function HomePage() {
 
         <main className="flex flex-col gap-16 h-full w-full pb-28">
           <CreatePostCard />
-          <PostFeed posts={posts} />
+          <PostFeed />
           <Link
             to="/"
             className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6"
