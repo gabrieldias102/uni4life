@@ -4,17 +4,16 @@ import CreatePostCard from "../components/CreatePostCard";
 
 function CreatePostMobile() {
     return (
-        <div className="space-y-4">
-
-            <nav>
+        <div className="h-screen flex flex-col justify-between bg-secondaryColor">
+            <nav className="">
                 <NavBar name={'Conexões'} />
             </nav>
 
-            <main className="w-auto">
-                <CreatePostCard />
+            <main className="h-4/5 flex items-center">
+                <CreatePostCard/>
             </main>
 
-            <footer className="xl:hidden block">
+            <footer>
                 <MobileFooter />
             </footer>
 
