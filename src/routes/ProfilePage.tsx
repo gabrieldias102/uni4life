@@ -26,7 +26,7 @@ function ProfilePage() {
                 <NavBar name={'Perfil'} />
             </nav>
 
-            <main className="pb-28">
+            <main className="pb-36">
                 <div>
                     <ProfileBar/>
                 </div>
@@ -40,7 +40,7 @@ function ProfilePage() {
                 </div>
             </main>
 
-            <footer className="xl:hidden block">
+            <footer>
                 <MobileFooter />
             </footer>
 
