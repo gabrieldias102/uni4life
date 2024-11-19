@@ -15,9 +15,15 @@ const CreatePostCard = () => {
       ></textarea>
 
       <div className="flex justify-between items-center mt-4">
-        <button className="bg-tertiaryColor text-secondaryColor px-4 py-2 rounded-2xl hover:bg-red-500 transition">
-          Publicar
-        </button>
+        <div className="flex gap-5">
+          <button className="bg-tertiaryColor text-secondaryColor px-4 py-2 rounded-2xl hover:bg-red-500 transition">
+            Publicar
+          </button>
+          <button className="bg-gray-400 text-secondaryColor px-4 py-2 rounded-2xl active:bg-gray-300 transition xl:hidden">
+            Cancelar
+          </button>
+        </div>
+
 
         <div className="flex space-x-3">
           <button className="p-2 bg-tertiaryColor rounded-full text-secondaryColor hover:bg-red-500 transition">

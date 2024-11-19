@@ -17,7 +17,7 @@ function ConnectionsPage() {
                 <ConnectedUsersCard />
             </main>
 
-            <footer className="xl:hidden fixed bottom-0 w-full">
+            <footer>
                 <MobileFooter />
             </footer>
 
