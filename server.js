@@ -1,6 +1,6 @@
+const cors = require("cors");
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-const cors = require("cors");
 
 const app = express();
 const prisma = new PrismaClient();
@@ -16,4 +16,4 @@ app.get("/users", async (req, res) => {
   res.json(users);
 });
 
-app.listen(3333, () => console.log("Server running on http://localhost:3333"));
+app.listen(3333, () => console.log("Acesse a API em http://localhost:3333"));
