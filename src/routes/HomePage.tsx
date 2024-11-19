@@ -37,7 +37,7 @@ function HomePage() {
           <ConnectedUsersCard />
         </aside>
 
-        <main className="flex flex-col gap-16 h-full w-full pb-28">
+        <main className="flex flex-col gap-16 h-full w-full pb-48">
           <div className="xl:block hidden">
             <CreatePostCard />
           </div>
@@ -53,7 +53,7 @@ function HomePage() {
         </aside>
       </div>
 
-      <footer className="xl:hidden block">
+      <footer className="xl:hidden fixed bottom-0 w-full">
           <MobileFooter />
       </footer>
 

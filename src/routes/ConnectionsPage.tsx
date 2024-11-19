@@ -11,13 +11,13 @@ function ConnectionsPage() {
                 <NavBar name={'Conexões'} />
             </nav>
 
-            <main className="flex flex-col gap-10 items-center scroll-pb-96 mx-5 relative pb-28">
+            <main className="flex flex-col gap-10 items-center scroll-pb-96 mx-5 relative pb-36">
                 <h1 className="text-tertiaryColor text-4xl font-bold mt-4">Conexões</h1>
                 <SuggestedUsersCard />
                 <ConnectedUsersCard />
             </main>
 
-            <footer className="xl:hidden block">
+            <footer className="xl:hidden fixed bottom-0 w-full">
                 <MobileFooter />
             </footer>
 
