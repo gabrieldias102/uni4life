@@ -37,10 +37,12 @@ function HomePage() {
           <ConnectedUsersCard />
         </aside>
 
-        <main className="flex flex-col gap-16 h-full w-full pb-28">
-          <CreatePostCard />
+        <main className="flex flex-col gap-16 h-full w-full pb-48">
+          <div className="xl:block hidden">
+            <CreatePostCard />
+          </div>
           <PostFeed posts={posts} />
-          <Link to="/" className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6">
+          <Link to="/CreatePost" className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6">
             <FaPencilAlt size={40}/>
           </Link>
         </main>
@@ -51,7 +53,7 @@ function HomePage() {
         </aside>
       </div>
 
-      <footer className="xl:hidden block">
+      <footer>
           <MobileFooter />
       </footer>
 
