@@ -7,7 +7,14 @@ const app = express();
 const prisma = new PrismaClient();
 
 // Configuração básica
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://uni4life.com"], // Permitir apenas este domínio
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // Servir os arquivos estáticos do React
