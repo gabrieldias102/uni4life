@@ -42,7 +42,7 @@ function HomePage() {
           </div>
           <PostFeed posts={posts} />
           <Link
-            to="/"
+            to="/CreatePost"
             className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6"
           >
             <FaPencilAlt size={40} />
