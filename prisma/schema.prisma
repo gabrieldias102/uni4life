@@ -18,7 +18,6 @@ model User {
 
 model Post {
   id       Int    @id @default(autoincrement())
-  title    String
   content  String
   likes    Int    @default(0)
   authorId Int
