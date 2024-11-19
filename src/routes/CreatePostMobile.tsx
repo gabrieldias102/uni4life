@@ -13,7 +13,7 @@ function CreatePostMobile() {
                 <CreatePostCard/>
             </main>
 
-            <footer>
+            <footer className="h-20">
                 <MobileFooter />
             </footer>
 
