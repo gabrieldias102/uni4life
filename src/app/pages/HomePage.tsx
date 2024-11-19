@@ -36,8 +36,10 @@ function HomePage() {
           <ConnectedUsersCard />
         </aside>
 
-        <main className="flex flex-col gap-16 h-full w-full pb-28">
-          <CreatePostCard />
+        <main className="flex flex-col gap-16 h-full w-full pb-48">
+          <div className="xl:block hidden">
+            <CreatePostCard />
+          </div>
           <PostFeed posts={posts} />
           <Link
             to="/"
