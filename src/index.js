@@ -2,37 +2,35 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import HomePage from "./routes/HomePage";
-import ProfilePage from "./routes/ProfilePage";
-import ConnectionsPage from "./routes/ConnectionsPage";
-import CreatePostMobile from "./routes/CreatePostMobile"
+import ConnectionsPage from "./app/pages/ConnectionsPage";
+import CreatePostMobile from "./app/pages/CreatePostMobile";
+import HomePage from "./app/pages/HomePage";
+import ProfilePage from "./app/pages/ProfilePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage/>
+    element: <HomePage />,
   },
   {
     path: "Profile",
-    element: <ProfilePage/>
+    element: <ProfilePage />,
   },
   {
     path: "Connections",
-    element: <ConnectionsPage/>
+    element: <ConnectionsPage />,
   },
   {
     path: "CreatePost",
-    element: <CreatePostMobile/>
+    element: <CreatePostMobile />,
   },
-])
-
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
