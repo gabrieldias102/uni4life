@@ -1,22 +1,36 @@
 import { GiPerson } from "react-icons/gi";
+import { useEffect, useState } from "react";
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+}
 
 const ConnectedUsersCard = () => {
-  const users = ["Usuário 2", "Usuário 3", "Usuário 4"]; 
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3333/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.error("Error fetching users:", error));
+  }, []);
 
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
-  
       <h2 className="text-teal-600 text-2xl font-bold mb-4">
         Usuários Conectados
       </h2>
 
       <ul className="space-y-3">
-        {users.map((user, index) => (
-          <li key={index} className="flex items-center">
+        {users.map((user) => (
+          <li key={user.id} className="flex items-center">
             <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
               <GiPerson size={25} />
             </div>
-            <p className="ml-4 text-primaryColor font-medium">{user}</p>
+            <p className="ml-4 text-primaryColor font-medium">{user.name}</p>
           </li>
         ))}
       </ul>
