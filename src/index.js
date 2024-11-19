@@ -6,7 +6,9 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomePage from "./routes/HomePage";
-import ProfilePage from "./routes/ProfilePage"
+import ProfilePage from "./routes/ProfilePage";
+import ConnectionsPage from "./routes/ConnectionsPage";
+import CreatePostMobile from "./routes/CreatePostMobile"
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
   {
     path: "Profile",
     element: <ProfilePage/>
+  },
+  {
+    path: "Connections",
+    element: <ConnectionsPage/>
+  },
+  {
+    path: "CreatePost",
+    element: <CreatePostMobile/>
   },
 ])
 
