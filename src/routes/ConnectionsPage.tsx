@@ -5,14 +5,14 @@ import ConnectedUsersCard from "../components/ConnectedUsersCard";
 
 function ConnectionsPage() {
     return (
-        <div className="flex flex-col h-screen">
+        <div className="space-y-4">
 
-            <nav className="xl:pb-8 pb-4">
+            <nav>
                 <NavBar name={'Conexões'} />
             </nav>
 
-            <main className="flex flex-col gap-10 items-center">
-                <h1></h1>
+            <main className="flex flex-col gap-10 items-center scroll-pb-96 mx-5 relative pb-28">
+                <h1 className="text-tertiaryColor text-4xl font-bold mt-4">Conexões</h1>
                 <SuggestedUsersCard />
                 <ConnectedUsersCard />
             </main>
