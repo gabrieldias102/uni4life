@@ -16,5 +16,19 @@ app.get("/users", async (req, res) => {
   res.json(users);
 });
 
+app.get("/posts", async (req, res) => {
+  const posts = await prisma.post.findMany({
+    include: {
+      author: {
+        select: {
+          name: true,
+          email: true,
+        },
+      },
+    },
+  });
+  res.json(posts);
+});
+
 const port = process.env.PORT || 3333;
 app.listen(port);
