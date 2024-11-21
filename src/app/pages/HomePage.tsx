@@ -2,7 +2,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import ProfileCard from "../components/ProfileCard";
-import ConnectedUsersCard from "../components/ConnectedUsersCard";
+import ConnectedUsersCard from "../components/AddedFriends";
 import CreatePostCard from "../components/CreatePostCard";
 import OrganizationCard from "../components/OrganizationCard";
 import SuggestedUsersCard from "../components/SuggestedUsersCard";

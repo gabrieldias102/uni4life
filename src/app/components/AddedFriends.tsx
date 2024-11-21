@@ -8,7 +8,7 @@ interface User {
   createdAt: string;
 }
 
-const ConnectedUsersCard = () => {
+const AddedFriends = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -20,9 +20,7 @@ const ConnectedUsersCard = () => {
 
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
-      <h2 className="text-teal-600 text-2xl font-bold mb-4">
-        Usuários Conectados
-      </h2>
+      <h2 className="text-teal-600 text-2xl font-bold mb-4">Seus Amigos</h2>
 
       <ul className="space-y-3">
         {users.map((user) => (
@@ -42,4 +40,4 @@ const ConnectedUsersCard = () => {
   );
 };
 
-export default ConnectedUsersCard;
+export default AddedFriends;

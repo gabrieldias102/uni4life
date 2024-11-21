@@ -24,7 +24,7 @@ const CreatePostCard = () => {
       });
 
       if (response.ok) {
-        const newPost = await response.json();
+        await response.json();
         setContent("");
       } else {
         const errorData = await response.json();
