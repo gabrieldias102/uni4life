@@ -23,7 +23,7 @@ const PostFeed = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetch("/api/posts")
+    fetch("http://localhost:3333/posts")
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .catch((error) => console.error("Error fetching users:", error));
