@@ -25,6 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "npm run start",
+    "vercel-build": "prisma generate && prisma migrate deploy && npm run build",
     "studio": "prisma studio"
   },
   "eslintConfig": {
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "prisma": "^5.22.0",
