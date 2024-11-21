@@ -16,4 +16,18 @@ app.get("/users", async (req, res) => {
   res.json(users);
 });
 
+app.get("/posts", async (req, res) => {
+  const posts = await prisma.post.findMany({
+    include: {
+      author: {
+        select: {
+          name: true,
+          email: true,
+        },
+      },
+    },
+  });
+  res.json(posts);
+});
+
 app.listen(3333, () => console.log("Acesse a API em http://localhost:3333"));
