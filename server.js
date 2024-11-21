@@ -1,6 +1,6 @@
-import express from "express";
-import { PrismaClient } from "@prisma/client";
-import cors from "cors";
+const { PrismaClient } = require("@prisma/client");
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const prisma = new PrismaClient();
@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/users", async (req, res) => {
+app.get("/users", async (req, res) => {
   try {
     const users = await prisma.user.findMany();
     res.json(users);
@@ -17,7 +17,7 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-app.get("/api/posts", async (req, res) => {
+app.get("/posts", async (req, res) => {
   try {
     const posts = await prisma.post.findMany({
       include: {
@@ -30,7 +30,7 @@ app.get("/api/posts", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
