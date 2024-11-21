@@ -12,7 +12,7 @@ const ConnectedUsersCard = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3333/users")
+    fetch("https://uni4life-api.vercel.app/users")
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.error("Error fetching users:", error));
