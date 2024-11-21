@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
-app.get("/users", async (req, res) => {
+app.get("/api/users", async (req, res) => {
   const users = await prisma.user.findMany({
     take: 3,
   });
@@ -16,7 +16,7 @@ app.get("/users", async (req, res) => {
   res.json(users);
 });
 
-app.get("/posts", async (req, res) => {
+app.get("/api/posts", async (req, res) => {
   const posts = await prisma.post.findMany({
     include: {
       author: {
