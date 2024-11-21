@@ -9,8 +9,6 @@ import SuggestedUsersCard from "../components/SuggestedUsersCard";
 import PostFeed from "../components/PostFeed";
 import MobileFooter from "../components/MobileFooter";
 
-import { useEffect, useState } from "react";
-
 function HomePage() {
   return (
     <div className="flex flex-col h-screen">
