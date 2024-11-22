@@ -35,8 +35,7 @@ const AddedFriends = () => {
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
       <h2 className="text-teal-600 text-2xl font-bold mb-4">Seus Amigos</h2>
-
-      {!friendList?.users || friendList.users.length === 0 ? (
+      {!friendList || !friendList.users || friendList.users.length === 0 ? (
         <p className="text-primaryColor text-center py-4">
           Ainda não tem amigos adicionados, quando fizer eles vão aparecer aqui
         </p>
