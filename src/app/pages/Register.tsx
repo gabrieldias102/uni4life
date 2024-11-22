@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,7 +26,30 @@ const Register = () => {
     }
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      // Chamada para API incluindo o nome
+      const response = await fetch("https://uni4life-api.vercel.app/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: user.email,
+          uid: user.uid,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao salvar usuário na API");
+      }
+
       setSuccess("Usuário registrado com sucesso!");
       navigate("/");
     } catch (err: any) {
@@ -46,6 +70,23 @@ const Register = () => {
         )}
 
         <form onSubmit={handleRegister}>
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Nome
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+            />
+          </div>
+
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -119,5 +160,4 @@ const Register = () => {
     </div>
   );
 };
-
 export default Register;
