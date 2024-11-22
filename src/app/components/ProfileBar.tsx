@@ -3,8 +3,37 @@ import { FaBuilding } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import MobileProfileBar from "./MobileProfileBar";
+import { auth } from "./firebase";
+import { useEffect, useState } from "react";
 
 const ProfileBar = () => {
+  const [userEmail, setUserEmail] = useState("");
+  const [userUid, setUserUid] = useState("");
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserEmail(user.email || "");
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    fetch(`https://uni4life-api.vercel.app/users/${userUid}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setUserName(data))
+      .catch((error) => console.error("Error fetching users:", error));
+  }, []);
+
   return (
     <div>
       <div>
@@ -25,7 +54,7 @@ const ProfileBar = () => {
             </div>
             <div>
               <p className="text-6xl font-semibold">Usuário 1</p>
-              <p className="text-xl font-light my-1">@Usuario1</p>
+              <p className="text-xl font-light my-1">{userEmail}</p>
               <p className="text-xl font-light mb-1">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </p>
