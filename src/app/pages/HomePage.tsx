@@ -8,6 +8,7 @@ import OrganizationCard from "../components/OrganizationCard";
 import SuggestedUsersCard from "../components/SuggestedUsersCard";
 import PostFeed from "../components/PostFeed";
 import MobileFooter from "../components/MobileFooter";
+import RefreshButton from "../components/RefreshButton";
 
 function HomePage() {
   return (
@@ -33,6 +34,11 @@ function HomePage() {
           >
             <FaPencilAlt size={40} />
           </Link>
+
+          <div className="">
+            <RefreshButton />
+          </div>
+
         </main>
 
         <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
