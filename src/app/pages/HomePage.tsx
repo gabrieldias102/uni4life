@@ -23,10 +23,16 @@ function HomePage() {
           <ConnectedUsersCard />
         </aside>
 
-        <main className="flex flex-col gap-16 h-full w-full pb-28">
+        <main className="flex flex-col gap-5 h-full w-full pb-28">
+
           <div className="xl:block hidden">
             <CreatePostCard />
           </div>
+
+          <div className="sticky top-5">
+            <RefreshButton />
+          </div>
+
           <PostFeed />
           <Link
             to="/CreatePost"
@@ -35,9 +41,7 @@ function HomePage() {
             <FaPencilAlt size={40} />
           </Link>
 
-          <div className="">
-            <RefreshButton />
-          </div>
+      
 
         </main>
 
