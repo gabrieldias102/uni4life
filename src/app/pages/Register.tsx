@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../components/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -107,6 +107,14 @@ const Register = () => {
             {loading ? "Registrando..." : "Registrar"}
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <p className="text-gray-600">
+            Já tem uma conta?{" "}
+            <Link to="/login" className="text-blue-600 hover:underline">
+              Acesse por aqui!
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
