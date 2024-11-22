@@ -1,7 +1,48 @@
 import { GiPerson } from "react-icons/gi";
 import { FaBuilding } from "react-icons/fa";
+import { auth } from "./firebase";
+import { useEffect, useState } from "react";
 
 const MobileProfileBar = () => {
+
+    const [userEmail, setUserEmail] = useState("");
+  const [userUid, setUserUid] = useState("");
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserEmail(user.email || "");
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (!userUid) return;
+
+    setIsLoading(true);
+    fetch(`https://uni4life-api.vercel.app/users/${userUid}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUserName(data.name);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+        setIsLoading(false);
+      });
+  }, [userUid]);
+
     return (
         <div className="xl:hidden flex flex-col mx-4">
 
@@ -24,8 +65,8 @@ const MobileProfileBar = () => {
                         <GiPerson size={100}/>
                     </div>
                     <div>
-                        <p className="text-lg font-semibold">Usuário 1</p>
-                        <p className="text-base font-light">@Usuario1</p>
+                        <p className="text-lg font-semibold">{isLoading ? "Carregando..." : userName}</p>
+                        <p className="text-base font-light">{userEmail}</p>
                         <p className="text-base font-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
                 </div>
