@@ -7,15 +7,15 @@ const Navbar = (props: { name: string }) => {
 
   return (
     <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md w-full">
-        <Link to="/" className="xl:mx-0 flex items-center space-x-2 mx-auto">
+        <Link to="/" className="xl:mx-0 flex items-center space-x-2 mx-auto w-1/3">
             <GiBookCover size={40} color={"#c96868"} />
             <span className="text-secondaryColor font-bold text-xl xl:hover:underline">Uni4Life</span>
         </Link>
       <div className="xl:block text-secondaryColor font-bold text-2xl hidden">
             {props.name}
       </div>
-      <div className="xl:flex items-center space-x-4 hidden">
-        <div className="relative">
+      <div className="xl:flex items-center hidden w-1/3">
+        <div className="relative ml-auto">
           <input
             type="text"
             placeholder="Pesquisar..."
@@ -38,13 +38,16 @@ const Navbar = (props: { name: string }) => {
             </svg>
           </button>
         </div>
-        <div className="flex flex-row items-center gap-2">
-          <button className="p-1 rounded-full">
+        <div className="flex flex-row items-center">
+          <button className="p-1 rounded-full mx-2">
             <FaBell color="#ff6e61" size={30} />
           </button>
-          <button className="p-1 bg-tertiaryColor rounded-full">
-            <GiPerson color="#fff4ea" size={30} />
-          </button>
+          <Link to="/Profile">
+            <button className="p-1 bg-tertiaryColor rounded-full">
+              <GiPerson color="#fff4ea" size={30} />
+            </button>
+          </Link>
+
         </div>
       </div>
     </nav>
