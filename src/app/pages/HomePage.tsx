@@ -24,25 +24,23 @@ function HomePage() {
         </aside>
 
         <main className="flex flex-col gap-5 h-full w-full pb-28">
-
           <div className="xl:block hidden">
             <CreatePostCard />
           </div>
 
-          <div className="xl:block hidden sticky top-5"><RefreshButton /></div>
-
           <PostFeed />
 
           <div className="flex flex-col gap-5 fixed bottom-28 right-6">
-            <div className="xl:hidden"><RefreshButton /></div>
+            {/* <div className="xl:hidden">
+              <RefreshButton />
+            </div> */}
             <Link
               to="/CreatePost"
-              className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full ">
+              className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full "
+            >
               <FaPencilAlt size={40} />
             </Link>
           </div>
-
-
         </main>
 
         <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
