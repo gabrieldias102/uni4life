@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPaperclip } from "react-icons/fa";
 import { AiFillPicture } from "react-icons/ai";
+import { auth } from "./firebase";
 
 const CreatePostCard = () => {
-  const [content, setContent] = useState(""); // Estado para o conteúdo da textarea
+  const [content, setContent] = useState("");
+  const [userUid, setUserUid] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handlePublish = async () => {
     if (!content.trim()) {
@@ -19,12 +31,12 @@ const CreatePostCard = () => {
         },
         body: JSON.stringify({
           content,
-          authorId: 0,
+          authorId: userUid,
         }),
       });
 
       if (response.ok) {
-        const newPost = await response.json();
+        await response.json();
         setContent("");
       } else {
         const errorData = await response.json();
