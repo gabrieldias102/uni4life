@@ -8,24 +8,36 @@ interface User {
   createdAt: string;
 }
 
-const ConnectedUsersCard = () => {
-  const [users, setUsers] = useState<User[]>([]);
+interface FriendList {
+  id: string;
+  ownerId: number;
+  createdAt: string;
+  users: User[];
+}
+
+const AddedFriends = () => {
+  const [friendList, setFriendList] = useState<FriendList | null>(null);
+  const [id, setId] = useState(3);
 
   useEffect(() => {
-    fetch("https://uni4life-api.vercel.app/users")
+    fetch(`https://uni4life-api.vercel.app/friendList/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => response.json())
-      .then((data) => setUsers(data))
+      .then((data) => setFriendList(data))
       .catch((error) => console.error("Error fetching users:", error));
   }, []);
 
+  console.log(friendList);
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
-      <h2 className="text-teal-600 text-2xl font-bold mb-4">
-        Usuários Conectados
-      </h2>
+      <h2 className="text-teal-600 text-2xl font-bold mb-4">Seus Amigos</h2>
 
       <ul className="space-y-3">
-        {users.map((user) => (
+        {friendList?.users.slice(0, 3).map((user) => (
           <li key={user.id} className="flex items-center">
             <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
               <GiPerson size={25} />
@@ -42,4 +54,4 @@ const ConnectedUsersCard = () => {
   );
 };
 
-export default ConnectedUsersCard;
+export default AddedFriends;
