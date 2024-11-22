@@ -29,19 +29,19 @@ function HomePage() {
             <CreatePostCard />
           </div>
 
-          <div className="sticky top-5">
-            <RefreshButton />
-          </div>
+          <div className="xl:block hidden sticky top-5"><RefreshButton /></div>
 
           <PostFeed />
-          <Link
-            to="/CreatePost"
-            className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6"
-          >
-            <FaPencilAlt size={40} />
-          </Link>
 
-      
+          <div className="flex flex-col gap-5 fixed bottom-28 right-6">
+            <div className="xl:hidden"><RefreshButton /></div>
+            <Link
+              to="/CreatePost"
+              className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full ">
+              <FaPencilAlt size={40} />
+            </Link>
+          </div>
+
 
         </main>
 

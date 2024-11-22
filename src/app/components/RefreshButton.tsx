@@ -1,10 +1,12 @@
-import { FiRefreshCcw } from "react-icons/fi";
+import { LuRefreshCcw } from "react-icons/lu";
 
 const RefreshButton = () => {
     return (
         <div className="flex items-center">
-            <button className="w-auto h-auto mx-auto p-3 rounded-full border-2 border-tertiaryColor text-tertiaryColor bg-white text-lg flex items-center justify-center">
-                <FiRefreshCcw/>
+            <button className="flex gap-3 items-center justify-center mx-auto xl:py-2 xl:px-4 xl:rounded-2xl p-4 rounded-full text-secondaryColor  bg-tertiaryColor hover:bg-red-500 transition">
+                <span className="xl:block hidden text-lg font-semibold">Recarregar</span>
+                <div className="xl:block hidden"><LuRefreshCcw/></div>
+                <div className="xl:hidden"><LuRefreshCcw size={40}/></div>
             </button>
         </div>
      
