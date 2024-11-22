@@ -3,8 +3,48 @@ import { FaBuilding } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import MobileProfileBar from "./MobileProfileBar";
+import { auth } from "./firebase";
+import { useEffect, useState } from "react";
 
 const ProfileBar = () => {
+  const [userEmail, setUserEmail] = useState("");
+  const [userUid, setUserUid] = useState("");
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserEmail(user.email || "");
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (!userUid) return;
+
+    setIsLoading(true);
+    fetch(`https://uni4life-api.vercel.app/users/${userUid}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUserName(data.name);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+        setIsLoading(false);
+      });
+  }, [userUid]);
+
   return (
     <div>
       <div>
@@ -24,9 +64,11 @@ const ProfileBar = () => {
               </div>
             </div>
             <div>
-              <p className="text-6xl font-semibold">Usuário 1</p>
-              <p className="text-xl font-light my-1">@Usuario1</p>
-              <p className="text-xl font-light mb-1">
+              <p className="text-5xl font-bold">
+                {isLoading ? "Carregando..." : userName}
+              </p>
+              <p className="text-xl font-light pl-1 my-1">{userEmail}</p>
+              <p className="text-xl font-light mb-1 ml-1">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </p>
               <div className="my-5 flex gap-10 text-center">

@@ -9,25 +9,52 @@ import CreatePostMobile from "./app/pages/CreatePostMobile";
 import HomePage from "./app/pages/HomePage";
 import ProfilePage from "./app/pages/ProfilePage";
 
+import Login from "./app/pages/Login";
+import Register from "./app/pages/Register";
+import PrivateRoute from "./app/components/PrivateRoute";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: (
+      <PrivateRoute>
+        <HomePage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "Profile",
-    element: <ProfilePage />,
+    element: (
+      <PrivateRoute>
+        <ProfilePage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "Connections",
-    element: <ConnectionsPage />,
+    element: (
+      <PrivateRoute>
+        <ConnectionsPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "CreatePost",
-    element: <CreatePostMobile />,
+    element: (
+      <PrivateRoute>
+        <CreatePostMobile />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "Login",
+    element: <Login />,
+  },
+  {
+    path: "Register",
+    element: <Register />,
   },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
