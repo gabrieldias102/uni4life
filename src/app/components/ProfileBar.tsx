@@ -74,9 +74,6 @@ const ProfileBar = () => {
       });
   }, [userUid]);
 
-  console.log("postCount", postCount);
-  console.log("conectionsCount", conectionsCount);
-
   return (
     <div>
       <div>
