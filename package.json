@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "npm run start",
-    "devo": "start opera http://localhost:3000 && next dev"
+    "devo": "start opera http://localhost:3000"
   },
   "eslintConfig": {
     "extends": [
