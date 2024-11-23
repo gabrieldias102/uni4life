@@ -5,6 +5,7 @@ import {
   AiOutlineRetweet,
 } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import RefreshButton from "../components/RefreshButton";
 
 interface Post {
   id: string;
@@ -21,16 +22,37 @@ interface Post {
 
 const PostFeed = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [hasNewPosts, setHasNewPosts] = useState(false);
 
-  useEffect(() => {
+  const fetchPosts = () => {
     fetch("https://uni4life-api.vercel.app/posts")
       .then((response) => response.json())
-      .then((data) => setPosts(data))
-      .catch((error) => console.error("Error fetching users:", error));
-  }, []);
+      .then((data) => {
+        if (posts.length === 0) {
+          setPosts(data);
+        } else {
+          const latestPosts = data.filter(
+            (newPost: Post) => !posts.some((post) => post.id === newPost.id)
+          );
+          if (latestPosts.length > 0) {
+            setHasNewPosts(true);
+          }
+        }
+      })
+      .catch((error) => console.error("Error fetching posts:", error));
+  };
+
+  useEffect(() => {
+    fetchPosts();
+    const interval = setInterval(fetchPosts, 5000);
+    return () => clearInterval(interval);
+  }, [posts]);
 
   return (
     <div className="space-y-4">
+      <div className="xl:block hidden sticky top-5">
+        {hasNewPosts && <RefreshButton />}
+      </div>
       {posts.map((post, index) => (
         <div
           key={index}
@@ -67,5 +89,4 @@ const PostFeed = () => {
     </div>
   );
 };
-
 export default PostFeed;
