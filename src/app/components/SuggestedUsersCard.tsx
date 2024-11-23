@@ -40,6 +40,33 @@ const SuggestedUsersCard = () => {
     }
   }, [userUid]);
 
+  const handleConnect = async (friendToAddId: string) => {
+    try {
+      const response = await fetch(
+        "http://localhost:3333/friendList/add-friend",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            loggedUserId: userUid,
+            friendToAddId: friendToAddId,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        // Remove the connected user from suggested users list
+        setSuggestedUsers(
+          suggestedUsers.filter((user) => user.uid !== friendToAddId)
+        );
+      }
+    } catch (error) {
+      console.error("Error connecting with user:", error);
+    }
+  };
+
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
       <h2 className="text-teal-600 text-2xl font-bold mb-4">
@@ -56,7 +83,10 @@ const SuggestedUsersCard = () => {
               <p className="ml-4 text-primaryColor font-medium">{user.name}</p>
             </div>
 
-            <button className="bg-red-400 text-white px-4 py-2 rounded-2xl hover:bg-red-500 transition font-medium">
+            <button
+              onClick={() => handleConnect(user.uid)}
+              className="bg-red-400 text-white px-4 py-2 rounded-2xl hover:bg-red-500 transition font-medium"
+            >
               Conectar +
             </button>
           </li>
