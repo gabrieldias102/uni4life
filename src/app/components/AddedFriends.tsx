@@ -4,6 +4,7 @@ import { auth } from "./firebase";
 
 interface User {
   id: string;
+  ownerId: number;
   name: string;
   email: string;
   createdAt: string;
@@ -11,7 +12,6 @@ interface User {
 
 interface FriendList {
   id: string;
-  ownerId: number;
   createdAt: string;
   users: User[];
 }
@@ -55,7 +55,7 @@ const AddedFriends = () => {
         <>
           <ul className="space-y-3">
             {friendList.users.slice(0, 3).map((user) => (
-              <li key={user.id} className="flex items-center">
+              <li key={user.ownerId} className="flex items-center">
                 <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
                   <GiPerson size={25} />
                 </div>
