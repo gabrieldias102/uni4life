@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { GiBookCover } from "react-icons/gi";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../components/firebase";
 import { Link, useNavigate } from "react-router-dom";
@@ -60,9 +61,15 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-6 bg-white rounded shadow-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Registrar</h2>
+    <div className="flex flex-col gap-5 items-center justify-center min-h-screen">
+
+      <div className="flex flex-col items-center text-2xl text-secondaryColor bg-tertiaryColor border-2 border-primaryColor rounded-full p-6 ">
+        <GiBookCover size={50}/>
+        <h1>Uni4Life</h1>
+      </div>
+
+      <div className="w-full max-w-md p-6 border-2 border-primaryColor bg-secondaryColor rounded-2xl shadow-2xl">
+        <h2 className="text-2xl text-primaryColor font-bold text-center mb-6">Registrar</h2>
 
         {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
         {success && (
@@ -73,7 +80,7 @@ const Register = () => {
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm mb-2 font-bold text-primaryColor"
             >
               Nome
             </label>
@@ -83,14 +90,14 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm mb-2 font-bold text-primaryColor"
             >
               Email
             </label>
@@ -100,14 +107,14 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
           <div className="mb-4">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm mb-2 font-bold text-primaryColor"
             >
               Senha
             </label>
@@ -117,14 +124,14 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
           <div className="mb-6">
             <label
               htmlFor="confirmPassword"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm mb-2 font-bold text-primaryColor"
             >
               Confirmar Senha
             </label>
@@ -134,14 +141,14 @@ const Register = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
           <button
             type="submit"
-            className={`w-full px-4 py-2 text-white font-semibold bg-blue-600 rounded ${
-              loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+            className={`w-full px-4 py-2 text-secondaryColor font-semibold bg-tertiaryColor rounded ${
+              loading ? "opacity-50 cursor-not-allowed" : "hover:bg-red-500"
             }`}
             disabled={loading}
           >
@@ -149,9 +156,9 @@ const Register = () => {
           </button>
         </form>
         <div className="mt-4 text-center">
-          <p className="text-gray-600">
+          <p className="text-primaryColor font-medium">
             Já tem uma conta?{" "}
-            <Link to="/login" className="text-blue-600 hover:underline">
+            <Link to="/login" className="text-tertiaryColor hover:text-red-500 hover:underline">
               Acesse por aqui!
             </Link>
           </p>
