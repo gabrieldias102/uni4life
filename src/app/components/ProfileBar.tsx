@@ -45,7 +45,7 @@ const ProfileBar = () => {
         setIsLoading(false);
       });
 
-    fetch(`https://uni4life-api.vercel.app/posts/friends/count/${userUid}`, {
+    fetch(`https://uni4life-api.vercel.app/friendlist/${userUid}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,8 @@ const ProfileBar = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setConectionsCount(data.friendCount);
+        const friendCount = Array.isArray(data.users) ? data.users.length : 0;
+        setConectionsCount(friendCount);
       })
       .catch((error) => {
         console.error("Error fetching users:", error);
