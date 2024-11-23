@@ -36,9 +36,8 @@ const ProfilePostFeed = () => {
     return () => unsubscribe();
   }, []);
 
-  console.log(userUid);
-  const fetchPosts = () => {
-    fetch("https://uni4life-api.vercel.app/posts")
+  useEffect(() => {
+    fetch(`https://uni4life-api.vercel.app/posts/user/${userUid}`)
       .then((response) => response.json())
       .then((data) => {
         if (posts.length === 0) {
@@ -53,13 +52,7 @@ const ProfilePostFeed = () => {
         }
       })
       .catch((error) => console.error("Error fetching posts:", error));
-  };
-
-  useEffect(() => {
-    fetchPosts();
-    const interval = setInterval(fetchPosts, 5000);
-    return () => clearInterval(interval);
-  }, [posts]);
+  }, [userUid]);
 
   return (
     <div className="space-y-4">

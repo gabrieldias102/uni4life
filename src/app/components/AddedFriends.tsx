@@ -31,18 +31,19 @@ const AddedFriends = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`https://uni4life-api.vercel.app/friendList/${userUid}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setFriendList(data))
-      .catch((error) => console.error("Error fetching users:", error));
-  }, []);
+    if (userUid) {
+      fetch(`https://uni4life-api.vercel.app/friendList/${userUid}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => setFriendList(data))
+        .catch((error) => console.error("Error fetching users:", error));
+    }
+  }, [userUid]);
 
-  console.log(friendList);
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
       <h2 className="text-teal-600 text-2xl font-bold mb-4">Seus Amigos</h2>
