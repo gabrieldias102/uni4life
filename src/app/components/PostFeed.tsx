@@ -22,7 +22,6 @@ interface Post {
 
 const PostFeed = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [newPosts, setNewPosts] = useState<Post[]>([]);
   const [hasNewPosts, setHasNewPosts] = useState(false);
 
   const fetchPosts = () => {
@@ -36,7 +35,6 @@ const PostFeed = () => {
             (newPost: Post) => !posts.some((post) => post.id === newPost.id)
           );
           if (latestPosts.length > 0) {
-            setNewPosts(latestPosts);
             setHasNewPosts(true);
           }
         }
@@ -50,16 +48,10 @@ const PostFeed = () => {
     return () => clearInterval(interval);
   }, [posts]);
 
-  const handleRefresh = () => {
-    setPosts([...newPosts, ...posts]);
-    setNewPosts([]);
-    setHasNewPosts(false);
-  };
-
   return (
     <div className="space-y-4">
       <div className="xl:block hidden sticky top-5">
-        {hasNewPosts && <RefreshButton onClick={handleRefresh} />}
+        {hasNewPosts && <RefreshButton />}
       </div>
       {posts.map((post, index) => (
         <div

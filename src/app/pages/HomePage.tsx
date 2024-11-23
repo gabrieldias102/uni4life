@@ -31,9 +31,9 @@ function HomePage() {
           <PostFeed />
 
           <div className="flex flex-col gap-5 fixed bottom-28 right-6">
-            {/* <div className="xl:hidden">
+            <div className="xl:hidden">
               <RefreshButton />
-            </div> */}
+            </div>
             <Link
               to="/CreatePost"
               className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full "
