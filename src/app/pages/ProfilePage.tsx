@@ -1,6 +1,6 @@
 import NavBar from "../components/NavBar";
 import ProfileBar from "../components/ProfileBar";
-import PostFeed from "../components/PostFeed";
+import ProfilePostFeed from "../components/ProfilePostFeed";
 import MobileFooter from "../components/MobileFooter";
 
 function ProfilePage() {
@@ -20,7 +20,7 @@ function ProfilePage() {
           <button className="hover:text-black">Republicados</button>
         </div>
         <div className="xl:w-2/5 mx-auto w-full px-5">
-          <PostFeed />
+          <ProfilePostFeed />
         </div>
       </main>
 

@@ -1,5 +1,6 @@
 import { GiPerson } from "react-icons/gi";
 import { useEffect, useState } from "react";
+import { auth } from "./firebase";
 
 interface User {
   id: string;
@@ -18,9 +19,20 @@ interface FriendList {
 const AddedFriends = () => {
   const [friendList, setFriendList] = useState<FriendList | null>(null);
   const [id, setId] = useState(3);
+  const [userUid, setUserUid] = useState("");
 
   useEffect(() => {
-    fetch(`https://uni4life-api.vercel.app/friendList/${id}`, {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    fetch(`https://uni4life-api.vercel.app/friendList/${userUid}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
