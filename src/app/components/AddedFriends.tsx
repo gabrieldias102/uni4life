@@ -18,7 +18,6 @@ interface FriendList {
 
 const AddedFriends = () => {
   const [friendList, setFriendList] = useState<FriendList | null>(null);
-  const [id, setId] = useState(3);
   const [userUid, setUserUid] = useState("");
 
   useEffect(() => {
