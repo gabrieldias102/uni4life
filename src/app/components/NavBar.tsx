@@ -39,8 +39,8 @@ const Navbar = (props: { name: string }) => {
           </button>
         </div>
         <div className="flex flex-row items-center">
-          <button className="p-2 rounded-full mx-2">
-            <FaBell color="#ff6e61" size={30} />
+          <button className="p-2 mx-2 bg-tertiaryColor rounded-full">
+            <FaBell color="#fff4ea" size={20} />
           </button>
           <Link to="/Profile">
             <button className="p-2 bg-tertiaryColor rounded-full">
