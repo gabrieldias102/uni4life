@@ -63,13 +63,19 @@ const Register = () => {
   return (
     <div className="flex flex-col gap-5 items-center justify-center min-h-screen">
 
-      <div className="flex flex-col items-center text-2xl text-secondaryColor bg-tertiaryColor border-2 border-primaryColor rounded-full p-6 ">
+      <div className="xl:flex xl:flex-col hidden items-center justify-center text-2xl font-semibold text-secondaryColor bg-tertiaryColor border-2 border-primaryColor rounded-full p-6 w-36 h-36">
         <GiBookCover size={50}/>
         <h1>Uni4Life</h1>
       </div>
 
-      <div className="w-full max-w-md p-6 border-2 border-primaryColor bg-secondaryColor rounded-2xl shadow-2xl">
-        <h2 className="text-2xl text-primaryColor font-bold text-center mb-6">Registrar</h2>
+      <div className="w-full xl:h-auto h-screen xl:rounded-2xl xl:border-2 border-4 border-primaryColor flex flex-col justify-center max-w-md p-6 bg-secondaryColor shadow-2xl">
+
+      <div className="xl:hidden flex flex-col items-center justify-center text-lg font-semibold text-secondaryColor bg-tertiaryColor border-2 border-primaryColor rounded-full p-5 w-28 h-28 mx-auto my-4">
+        <GiBookCover size={50}/>
+        <h1>Uni4Life</h1>
+      </div>
+
+        <h2 className="xl:text-2xl text-2xl text-primaryColor font-bold text-center mb-2">Registrar</h2>
 
         {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
         {success && (
@@ -77,10 +83,10 @@ const Register = () => {
         )}
 
         <form onSubmit={handleRegister}>
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               htmlFor="name"
-              className="block text-sm mb-2 font-bold text-primaryColor"
+              className="block xl:text-sm text-lg font-bold text-primaryColor"
             >
               Nome
             </label>
@@ -90,14 +96,14 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
+              className="w-full px-3 py-2 text-primaryColor xl:text-base text-xl  font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               htmlFor="email"
-              className="block text-sm mb-2 font-bold text-primaryColor"
+              className="block xl:text-sm text-lg font-bold text-primaryColor"
             >
               Email
             </label>
@@ -107,14 +113,14 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
+              className="w-full px-3 py-2 text-primaryColor xl:text-base text-xl  font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               htmlFor="password"
-              className="block text-sm mb-2 font-bold text-primaryColor"
+              className="block xl:text-sm text-lg font-bold text-primaryColor"
             >
               Senha
             </label>
@@ -124,14 +130,14 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
+              className="w-full px-3 py-2 text-primaryColor xl:text-base text-xl  font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
           <div className="mb-6">
             <label
               htmlFor="confirmPassword"
-              className="block text-sm mb-2 font-bold text-primaryColor"
+              className="block xl:text-sm text-lg font-bold text-primaryColor"
             >
               Confirmar Senha
             </label>
@@ -141,13 +147,13 @@ const Register = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 text-primaryColor font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
+              className="w-full px-3 py-2 text-primaryColor xl:text-base text-xl  font-semibold border-2 border-primaryColor rounded hover:border-tertiaryColor"
             />
           </div>
 
           <button
             type="submit"
-            className={`w-full px-4 py-2 text-secondaryColor font-semibold bg-tertiaryColor rounded ${
+            className={`w-full px-4 py-2 text-secondaryColor xl:text-base text-xl font-semibold bg-tertiaryColor rounded ${
               loading ? "opacity-50 cursor-not-allowed" : "hover:bg-red-500"
             }`}
             disabled={loading}
@@ -155,10 +161,10 @@ const Register = () => {
             {loading ? "Registrando..." : "Registrar"}
           </button>
         </form>
-        <div className="mt-4 text-center">
-          <p className="text-primaryColor font-medium">
+        <div className="my-4 text-center ">
+          <p className="text-primaryColor xl:text-base text-lg font-medium">
             Já tem uma conta?{" "}
-            <Link to="/login" className="text-tertiaryColor hover:text-red-500 hover:underline">
+            <Link to="/login" className="text-tertiaryColor xl:text-base text-lg hover:text-red-500 hover:underline">
               Acesse por aqui!
             </Link>
           </p>
