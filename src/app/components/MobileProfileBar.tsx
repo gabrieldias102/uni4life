@@ -1,5 +1,4 @@
-import { GiPerson } from "react-icons/gi";
-import { FaBuilding } from "react-icons/fa";
+import { FaBuilding, FaUserAlt } from "react-icons/fa";
 import { auth } from "./firebase";
 import { useEffect, useState } from "react";
 
@@ -61,8 +60,8 @@ const MobileProfileBar = () => {
 
       <div>
         <div className="flex gap-3 items-center mt-3">
-          <div className="p-4 w-28 h-28 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-            <GiPerson size={100} />
+          <div className="p-5 w-28 h-28 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
+            <FaUserAlt size={100} />
           </div>
           <div>
             <p className="text-lg font-semibold">

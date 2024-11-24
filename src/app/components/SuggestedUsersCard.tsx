@@ -1,4 +1,4 @@
-import { GiPerson } from "react-icons/gi";
+import { FaUserAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 
@@ -78,7 +78,7 @@ const SuggestedUsersCard = () => {
           <li key={user.uid} className="flex items-center justify-between">
             <div className="flex items-center">
               <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-                <GiPerson size={25} />
+                <FaUserAlt size={20} />
               </div>
               <p className="ml-4 text-primaryColor font-medium">{user.name}</p>
             </div>

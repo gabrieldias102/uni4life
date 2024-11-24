@@ -1,4 +1,4 @@
-import { GiPerson } from "react-icons/gi";
+import { FaUserAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 
@@ -57,7 +57,7 @@ const AddedFriends = () => {
             {friendList.users.slice(0, 3).map((user) => (
               <li key={user.ownerId} className="flex items-center">
                 <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-                  <GiPerson size={25} />
+                  <FaUserAlt size={20} />
                 </div>
                 <p className="ml-4 text-primaryColor font-medium">
                   {user.name}

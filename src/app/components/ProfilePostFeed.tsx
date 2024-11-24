@@ -1,4 +1,4 @@
-import { GiPerson } from "react-icons/gi";
+import { FaUserAlt } from "react-icons/fa";
 import {
   AiFillHeart,
   AiOutlineComment,
@@ -66,7 +66,7 @@ const ProfilePostFeed = () => {
         >
           <div className="flex items-center mb-3">
             <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-              <GiPerson size={25} />
+              <FaUserAlt size={20} />
             </div>
 
             <div className="ml-4">

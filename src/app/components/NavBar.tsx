@@ -1,12 +1,12 @@
-import { GiBookCover, GiPerson } from "react-icons/gi";
-import { FaBell } from "react-icons/fa";
+import { GiBookCover } from "react-icons/gi";
+import { FaBell, FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
 const Navbar = (props: { name: string }) => {
 
   return (
-    <nav className="flex items-center justify-between bg-primaryColor p-4 shadow-md w-full">
+    <nav className="flex items-center justify-between bg-primaryColor p-3 shadow-md w-full">
         <Link to="/" className="xl:mx-0 flex items-center space-x-2 mx-auto w-1/3">
             <GiBookCover size={40} color={"#c96868"} />
             <span className="text-secondaryColor font-bold text-xl xl:hover:underline">Uni4Life</span>
@@ -39,12 +39,12 @@ const Navbar = (props: { name: string }) => {
           </button>
         </div>
         <div className="flex flex-row items-center">
-          <button className="p-1 rounded-full mx-2">
+          <button className="p-2 rounded-full mx-2">
             <FaBell color="#ff6e61" size={30} />
           </button>
           <Link to="/Profile">
-            <button className="p-1 bg-tertiaryColor rounded-full">
-              <GiPerson color="#fff4ea" size={30} />
+            <button className="p-2 bg-tertiaryColor rounded-full">
+              <FaUserAlt color="#fff4ea" size={20} />
             </button>
           </Link>
 
