@@ -36,7 +36,7 @@ function HomePage() {
             </div>
             <Link
               to="/CreatePost"
-              className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full "
+              className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 h-16 w-16 rounded-full border-2 border-secondaryColor"
             >
               <FaPencilAlt size={40} />
             </Link>
