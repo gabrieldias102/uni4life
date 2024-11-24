@@ -9,7 +9,7 @@ function CreatePostMobile() {
                 <NavBar name={'Conexões'} />
             </nav>
 
-            <main className="h-4/5 flex items-center">
+            <main className="h-3/4 flex items-center">
                 <CreatePostCard/>
             </main>
 

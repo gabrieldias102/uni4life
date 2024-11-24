@@ -1,8 +1,10 @@
 import { GiPerson } from "react-icons/gi";
 import { useEffect, useState } from "react";
+import { auth } from "./firebase";
 
 interface User {
   id: string;
+  ownerId: number;
   name: string;
   email: string;
   createdAt: string;
@@ -10,31 +12,41 @@ interface User {
 
 interface FriendList {
   id: string;
-  ownerId: number;
   createdAt: string;
   users: User[];
 }
 
 const AddedFriends = () => {
   const [friendList, setFriendList] = useState<FriendList | null>(null);
-  const [id, setId] = useState(3);
+  const [userUid, setUserUid] = useState("");
 
   useEffect(() => {
-    fetch(`https://uni4life-api.vercel.app/friendList/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setFriendList(data))
-      .catch((error) => console.error("Error fetching users:", error));
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  console.log(friendList);
+  useEffect(() => {
+    if (userUid) {
+      fetch(`https://uni4life-api.vercel.app/friendList/${userUid}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => setFriendList(data))
+        .catch((error) => console.error("Error fetching users:", error));
+    }
+  }, [userUid]);
+
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
-      <h2 className="text-teal-600 text-2xl font-bold mb-4">Seus Amigos</h2>
+      <h2 className="text-teal-600 text-2xl font-bold mb-4">Suas Conexões</h2>
       {!friendList || !friendList.users || friendList.users.length === 0 ? (
         <p className="text-primaryColor text-center py-4">
           Ainda não tem amigos adicionados, quando fizer eles vão aparecer aqui
@@ -43,7 +55,7 @@ const AddedFriends = () => {
         <>
           <ul className="space-y-3">
             {friendList.users.slice(0, 3).map((user) => (
-              <li key={user.id} className="flex items-center">
+              <li key={user.ownerId} className="flex items-center">
                 <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
                   <GiPerson size={25} />
                 </div>
