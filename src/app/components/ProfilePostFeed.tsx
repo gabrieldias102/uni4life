@@ -5,7 +5,8 @@ import {
   AiOutlineRetweet,
 } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import RefreshButton from "../components/RefreshButton";
+import RefreshButton from "./RefreshButton";
+import { auth } from "./firebase";
 
 interface Post {
   id: string;
@@ -20,12 +21,23 @@ interface Post {
   };
 }
 
-const PostFeed = () => {
+const ProfilePostFeed = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [hasNewPosts, setHasNewPosts] = useState(false);
+  const [userUid, setUserUid] = useState("");
 
-  const fetchPosts = () => {
-    fetch("https://uni4life-api.vercel.app/posts")
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    fetch(`https://uni4life-api.vercel.app/posts/user/${userUid}`)
       .then((response) => response.json())
       .then((data) => {
         if (posts.length === 0) {
@@ -40,13 +52,7 @@ const PostFeed = () => {
         }
       })
       .catch((error) => console.error("Error fetching posts:", error));
-  };
-
-  useEffect(() => {
-    fetchPosts();
-    const interval = setInterval(fetchPosts, 5000);
-    return () => clearInterval(interval);
-  }, [posts]);
+  }, [userUid]);
 
   return (
     <div className="space-y-4">
@@ -89,4 +95,4 @@ const PostFeed = () => {
     </div>
   );
 };
-export default PostFeed;
+export default ProfilePostFeed;

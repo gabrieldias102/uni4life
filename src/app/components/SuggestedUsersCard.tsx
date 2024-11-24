@@ -1,7 +1,71 @@
 import { GiPerson } from "react-icons/gi";
+import { useEffect, useState } from "react";
+import { auth } from "./firebase";
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  uid: string;
+}
 
 const SuggestedUsersCard = () => {
-  const users = ["Usuário 5", "Usuário 6", "Usuário 7"]; // Example user data
+  const [suggestedUsers, setSuggestedUsers] = useState<User[]>([]);
+  const [userUid, setUserUid] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserUid(user.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (userUid) {
+      fetch(
+        `https://uni4life-api.vercel.app/friendList/${userUid}/non-friends`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => setSuggestedUsers(data))
+        .catch((error) => console.error("Error fetching users:", error));
+    }
+  }, [userUid]);
+
+  const handleConnect = async (friendToAddId: string) => {
+    try {
+      const response = await fetch(
+        "http://localhost:3333/friendList/add-friend",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            loggedUserId: userUid,
+            friendToAddId: friendToAddId,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        // Remove the connected user from suggested users list
+        setSuggestedUsers(
+          suggestedUsers.filter((user) => user.uid !== friendToAddId)
+        );
+      }
+    } catch (error) {
+      console.error("Error connecting with user:", error);
+    }
+  };
 
   return (
     <div className="bg-secondaryColor border border-primaryColor rounded-3xl p-4 shadow-md max-w-sm mx-auto w-full">
@@ -10,16 +74,19 @@ const SuggestedUsersCard = () => {
       </h2>
 
       <ul className="space-y-2">
-        {users.map((user, index) => (
-          <li key={index} className="flex items-center justify-between">
+        {suggestedUsers.slice(0, 3).map((user) => (
+          <li key={user.uid} className="flex items-center justify-between">
             <div className="flex items-center">
               <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
                 <GiPerson size={25} />
               </div>
-              <p className="ml-4 text-primaryColor font-medium">{user}</p>
+              <p className="ml-4 text-primaryColor font-medium">{user.name}</p>
             </div>
 
-            <button className="bg-red-400 text-white px-4 py-2 rounded-2xl hover:bg-red-500 transition font-medium">
+            <button
+              onClick={() => handleConnect(user.uid)}
+              className="bg-red-400 text-white px-4 py-2 rounded-2xl hover:bg-red-500 transition font-medium"
+            >
               Conectar +
             </button>
           </li>
@@ -32,5 +99,4 @@ const SuggestedUsersCard = () => {
     </div>
   );
 };
-
 export default SuggestedUsersCard;

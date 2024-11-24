@@ -8,6 +8,7 @@ import OrganizationCard from "../components/OrganizationCard";
 import SuggestedUsersCard from "../components/SuggestedUsersCard";
 import PostFeed from "../components/PostFeed";
 import MobileFooter from "../components/MobileFooter";
+import RefreshButton from "../components/RefreshButton";
 
 function HomePage() {
   return (
@@ -22,17 +23,24 @@ function HomePage() {
           <AddedFriends />
         </aside>
 
-        <main className="flex flex-col gap-16 h-full w-full pb-28">
+        <main className="flex flex-col gap-5 h-full w-full pb-28">
           <div className="xl:block hidden">
             <CreatePostCard />
           </div>
+
           <PostFeed />
-          <Link
-            to="/CreatePost"
-            className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full fixed bottom-28 right-6"
-          >
-            <FaPencilAlt size={40} />
-          </Link>
+
+          <div className="flex flex-col gap-5 fixed bottom-28 right-6">
+            <div className="xl:hidden">
+              <RefreshButton />
+            </div>
+            <Link
+              to="/CreatePost"
+              className="xl:hidden flex items-center justify-around text-secondaryColor bg-tertiaryColor p-4 rounded-full "
+            >
+              <FaPencilAlt size={40} />
+            </Link>
+          </div>
         </main>
 
         <aside className="xl:flex flex-col gap-8 h-full w-2/5 hidden">
