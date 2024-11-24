@@ -1,6 +1,6 @@
 import { FaUserAlt } from "react-icons/fa";
 import {
-  AiFillHeart,
+  AiOutlineHeart,
   AiOutlineComment,
   AiOutlineRetweet,
 } from "react-icons/ai";
@@ -81,7 +81,7 @@ const ProfilePostFeed = () => {
 
           <div className="flex justify-around items-center">
             <button className="flex items-center text-red-400 space-x-1 hover:text-red-500 transition">
-              <AiFillHeart size={20} />
+              <AiOutlineHeart size={20} />
             </button>
             <button className="flex items-center text-red-400 space-x-1 hover:text-red-500 transition">
               <AiOutlineComment size={20} />
