@@ -1,5 +1,4 @@
-import { GiPerson } from "react-icons/gi";
-import { FaBuilding } from "react-icons/fa";
+import { FaBuilding, FaUserAlt } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import MobileProfileBar from "./MobileProfileBar";
@@ -90,7 +89,7 @@ const ProfileBar = () => {
                 </button>
               </Link>
               <div className="p-8 w-72 h-72 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center">
-                <GiPerson size={250} />
+                <FaUserAlt size={180} />
               </div>
             </div>
             <div>

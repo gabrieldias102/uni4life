@@ -1,4 +1,4 @@
-import { GiPerson } from "react-icons/gi";
+import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { auth } from "./firebase";
 import { useEffect, useState } from "react";
@@ -46,8 +46,8 @@ const ProfileCard = () => {
       <h2 className="text-teal-600 text-2xl font-bold mb-4">Seu Perfil</h2>
 
       <div className="flex items-center mb-4">
-        <div className="p-2 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center text-xl font-bold">
-          <GiPerson size={35} />
+        <div className="p-4 bg-tertiaryColor text-secondaryColor rounded-full flex items-center justify-center text-xl font-bold">
+          <FaUserAlt size={35} />
         </div>
         <div className="ml-4">
           <p className="text-primaryColor text-xl font-bold">
