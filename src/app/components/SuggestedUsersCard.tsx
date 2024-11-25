@@ -43,7 +43,7 @@ const SuggestedUsersCard = () => {
   const handleConnect = async (friendToAddId: string) => {
     try {
       const response = await fetch(
-        "http://localhost:3333/friendList/add-friend",
+        "https://uni4life-api.vercel.app/friendList/add-friend",
         {
           method: "POST",
           headers: {
