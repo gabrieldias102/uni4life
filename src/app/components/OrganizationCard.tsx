@@ -12,10 +12,10 @@ const OrganizationCard = () => {
 
         <div className="ml-4">
           <p className="text-red-500 font-semibold">Unisinos</p>
-          <p className="text-teal-600 text-sm">
+          <p className="text-teal-600 lg:text-xs 2xl:text-sm">
             Análise e Desenvolvimento de Sistemas
           </p>
-          <p className="text-teal-600 text-sm font-light">Aluno</p>
+          <p className="text-teal-600 font-light lg:text-xs 2xl:text-sm">Aluno</p>
         </div>
       </div>
 
