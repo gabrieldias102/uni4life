@@ -6,6 +6,9 @@ const MobileProfileBar = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userUid, setUserUid] = useState("");
   const [userName, setUserName] = useState("");
+  const [conectionsCount, setConectionsCount] = useState(0);
+  const [postCount, setPostCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -17,8 +20,6 @@ const MobileProfileBar = () => {
 
     return () => unsubscribe();
   }, []);
-
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!userUid) return;
@@ -38,6 +39,35 @@ const MobileProfileBar = () => {
       .catch((error) => {
         console.error("Error fetching users:", error);
         setIsLoading(false);
+      });
+
+    fetch(`https://uni4life-api.vercel.app/friendlist/${userUid}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const friendCount = Array.isArray(data.users) ? data.users.length : 0;
+        setConectionsCount(friendCount);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+      });
+
+    fetch(`https://uni4life-api.vercel.app/posts/count/${userUid}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPostCount(data.postCount);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
       });
   }, [userUid]);
 
@@ -79,11 +109,11 @@ const MobileProfileBar = () => {
             Editar Perfil
           </button>
           <div>
-            <p className="text-lg font-bold">350</p>
+            <p className="text-lg font-bold">{postCount}</p>
             <p className="text-base">Publicações</p>
           </div>
           <div>
-            <p className="text-lg font-bold">73</p>
+            <p className="text-lg font-bold">{conectionsCount}</p>
             <p className="text-base">Conexões</p>
           </div>
         </div>
