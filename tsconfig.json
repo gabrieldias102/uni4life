@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "ESNext",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "strict": true,
     "moduleResolution": "Node",
     "esModuleInterop": true,
@@ -17,19 +17,11 @@
       "esnext"
     ],
     "allowJs": true,
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "incremental": true
   },
   "include": [
-    "server.js",
     "src",
-    "src/app/components",
-    "src/custom.d.ts",
-    ".next/types/**/*.ts"
+    "vite.config.js"
   ],
   "exclude": [
     "node_modules",

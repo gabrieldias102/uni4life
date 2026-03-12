@@ -1,17 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import "./index.css";
+import PrivateRoute from "./app/components/PrivateRoute";
 import ConnectionsPage from "./app/pages/ConnectionsPage";
 import CreatePostMobile from "./app/pages/CreatePostMobile";
 import HomePage from "./app/pages/HomePage";
-import ProfilePage from "./app/pages/ProfilePage";
-
 import Login from "./app/pages/Login";
+import ProfilePage from "./app/pages/ProfilePage";
 import Register from "./app/pages/Register";
-import PrivateRoute from "./app/components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -55,8 +53,8 @@ const router = createBrowserRouter([
     element: <Register />,
   },
 ]);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
